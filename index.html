@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ONE FM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0d1b2a;
+      color: #ffffff;
+    }
+    nav {
+      background: linear-gradient(to top, #FFCC33, #FF9900);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    nav ul li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+	@media (max-width: 768px) {
+	  .menu-toggle {
+       display: block;
+	}
+	nav ul {
+    display: none;
+			}
+	}
+    .hero {
+      background: url(Materials/bg_poster.gif) no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+	  opacity: 0.8;
+    }
+    .play-text-button {
+	  background-color: #ffffffcc;
+	  color: #004225;
+	  font-weight: bold;
+	  border: none;
+	  padding: 1rem 2rem;
+	  font-size: 1.5rem;
+	  border-radius: 30px;
+	  cursor: pointer;
+	  transition: background-color 0.3s ease, color 0.3s ease;
+	}
+
+	.play-text-button.pause {
+	  background-color: #004225;
+	  color: #ffffff;
+	}
+
+
+    .manual-slider {
+		  background-color: #edeeeb;
+		  position: relative;
+		  max-width: 100%;
+		  overflow: hidden;
+		  padding: 1rem 0;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		}
+
+		.slider-wrapper {
+		  display: flex;
+		  transition: transform 0.5s ease-in-out;
+		  width: 90%;
+		}
+
+		.slide {
+		  min-width: 100%;
+		  box-sizing: border-box;
+		  padding: 1rem;
+		  text-align: center;
+		  color: #000000;
+		}
+
+		.slide img {
+		  width: 30%;
+		  max-height: 800px;
+		  object-fit: cover;
+		  border-radius: 10px;
+		  margin-bottom: 1rem;
+		}
+
+		.slide a {
+		  display: inline-block;
+		  margin-top: 0.5rem;
+		  color: #FFCC33;
+		  text-decoration: underline;
+		}
+
+		.prev,
+		.next {
+		  position: absolute;
+		  background-color: rgba(0, 0, 0, 0.5);
+		  border: none;
+		  color: white;
+		  font-size: 2rem;
+		  padding: 0.5rem 1rem;
+		  cursor: pointer;
+		  top: 50%;
+		  transform: translateY(-50%);
+		  z-index: 1;
+		}
+
+		.prev {
+		  left: 10px;
+		}
+
+		.next {
+		  right: 10px;
+		}
+
+	.socials {
+	  padding: 0.5rem;
+	  background: linear-gradient(to bottom, #007F3B, #004225);
+	  text-align: center;
+	  color: #ffffff;
+	}
+
+	.social-links {
+	  display: flex;
+	  justify-content: center;
+	  gap: 1.5rem;
+	  margin: 1rem 0;
+	}
+
+	.social-links a {
+	  color: #ffffff;
+	  font-size: 1.5rem;
+	  transition: color 0.3s ease, transform 0.3s ease;
+	}
+
+	.social-links a:hover {
+	  color: #FFCC33;
+	  transform: scale(1.2);
+	}
+
+	nav ul li a:hover {
+      color: #004225;
+    }
+	
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo" href="#1st">
+      <img src="Materials/logo.png" alt="" style="height: 25px; vertical-align: middle;">
+      <span style="margin-left: 10px; vertical-align: middle;"></span>
+    </div>
+    <ul id="nav-links">
+      <li><a href="#1st">Home</a></li>
+      <li><a href="#2nd">Articles</a></li>
+      <li><a href="#3rd">Social</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="1st">
+    <button class="play-text-button" onclick="togglePlay()" id="playBtn">LISTEN LIVE</button>
+    <audio id="radio"></audio>
+	
+  </section>
+
+  <section class="manual-slider" id="2nd">
+  <button class="prev" onclick="slide(-1)">❮</button>
+
+  <div class="slider-wrapper" id="slider">
+    <div class="slide">
+		  <img src="Materials/1_article.jpg" alt="">
+		  <h3>‘AFFAIR’  SA CONCERT? 👀</h3>
+		  <p>Viral ngayon ang video nina Astronomer CEO Andy Byron at Chief People Officer Kristin Cabot matapos mahuling magkayakap...</p>
+		  <a href="https://www.facebook.com/photo?fbid=1341676187965866&set=a.696487182484773">Read More</a>
+		</div>
+		<div class="slide">
+		  <img src="Materials/2_article.jpg" alt="Top Hits">
+		  <h3>THE JUANS x JANINE BERDIN! 😍🎶</h3>
+		  <p>Nagpakilig at nagpaiyak sa fans ang espesyal na collab ng #OPM band na #TheJuans at singer na si #JanineBerdin para sa bagong bersyon ng hit single na “Ano Ba Talaga Tayo?”</p>
+		  <a href="https://www.facebook.com/photo?fbid=1341733317960153&set=a.696487182484773">Read More</a>
+		</div>
+		<div class="slide">
+		  <img src="Materials/3_article.jpg" alt="Upcoming Shows">
+		  <h3>SONA COUNTDOWN FACTS!💡</h3>
+		  <p>With just 10 days left before the 2025 State of the Nation Address (SONA) of President Ferdinand "Bongbong" Marcos Jr., here’s a quick historical fact:</p>
+		  <a href="https://www.facebook.com/photo/?fbid=1341664594633692&set=pb.100063704936227.-2207520000">Read More</a>
+		</div>
+	 </div>
+
+	  <button class="next" onclick="slide(1)">❯</button>
+	</section>
+
+
+  <section class="socials" id="3rd">
+	  <p>Follow us on:</p>
+	  <div class="social-links">
+		<a href="https://www.facebook.com/onefm.ph" target="_blank"><i class="fab fa-facebook-f"></i></a>
+		<a href="https://www.instagram.com/onefm.ph/" target="_blank"><i class="fab fa-instagram"></i></a>
+		<a href="https://www.tiktok.com/@onefm_onelangyan" target="_blank"><i class="fab fa-tiktok"></i></a>
+	  </div>
+	  <p>&copy; Your Only One FM!</p>
+  </section>
+
+  <script>
+  const playlist = [
+  { src: 'Music/TOH.mp3', title: 'Top of the Hour' },
+  { src: 'Music/INTRO.mp3', title: 'Track 2 - Chill Nights' },
+  { src: 'Music/2005Playlist.mp3', title: 'Track 3 - Morning Beats' }
+];
+
+  const radio = document.getElementById('radio');
+  const playBtn = document.getElementById('playBtn');
+  let isPlaying = false;
+  let currentTrack = 0;
+
+  function loadAndPlay(index) {
+  radio.src = playlist[index].src;
+  radio.play();
+  playBtn.classList.add('pause');
+  playBtn.textContent = 'ON AIR';
+  document.getElementById('nowPlayingText').textContent = 'Now Playing: ' + playlist[index].title;
+}
+
+  function togglePlay() {
+    if (isPlaying) {
+      radio.pause();
+      playBtn.classList.remove('pause');
+      playBtn.textContent = 'LISTEN LIVE';
+    } else {
+      if (!radio.src) {
+        loadAndPlay(currentTrack); // Load and play first track
+      } else {
+        radio.play();
+        playBtn.classList.add('pause');
+        playBtn.textContent = 'ON AIR';
+      }
+    }
+    isPlaying = !isPlaying;
+  }
+
+  radio.addEventListener('ended', () => {
+    currentTrack = (currentTrack + 1) % playlist.length;
+    loadAndPlay(currentTrack);
+  });
+  
+  
+  let currentIndex = 0;
+  const slides = document.querySelectorAll('.slide');
+  const slider = document.getElementById('slider');
+
+  function slide(direction) {
+    currentIndex += direction;
+    if (currentIndex < 0) currentIndex = slides.length - 1;
+    if (currentIndex >= slides.length) currentIndex = 0;
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+
+</script>
+
+
+</body>
+</html>
